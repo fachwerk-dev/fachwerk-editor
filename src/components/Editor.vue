@@ -30,11 +30,21 @@ window.MonacoEnvironment = {
 
 const editorRef = ref(null);
 
+monaco.editor.defineTheme("monacoTheme", {
+  base: "vs-dark",
+  inherit: true,
+  rules: [],
+  colors: {
+    "editor.background": "#1F2937", // bg-gray-800
+  },
+});
+
 onMounted(() => {
   const editor = monaco.editor.create(editorRef.value!, {
     language: "html",
-    theme: "vs-dark",
+    theme: "monacoTheme",
     fontSize: 15,
+    fontFamily: "Cousine, monospace",
     wordWrap: "wordWrapColumn",
     wordWrapColumn: 70,
     lineNumbers: "off",

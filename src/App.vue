@@ -30,10 +30,8 @@ watchEffect(() => {
 
 <style>
 :root {
-  --sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  --mono: "SF Mono", Monaco, Menlo, Consolas, "Ubuntu Mono", "Liberation Mono",
-    "DejaVu Sans Mono", "Courier New", monospace;
+  --sans-serif: "IBM Plex Sans", sans-serif;
+  --mono: Cousine, monospace;
 }
 body {
   margin: 0;

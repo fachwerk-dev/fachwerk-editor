@@ -10,6 +10,7 @@
     "marked": "^4.0.10",
     "monaco-editor": "^0.31.1",
     "visualia": "^0.0.43",
+    "vite-plugin-fonts": "^0.2.2",
     "vue": "^3.1.4"
   },
   "devDependencies": {

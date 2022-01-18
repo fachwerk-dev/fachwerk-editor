@@ -16,7 +16,7 @@ export default defineComponent({
     const { markdown } = toRefs(props);
     const compiledMarkdown = useCompiledMarkdown(markdown);
     return () =>
-      h("div", { style: { padding: "24px" } }, h(compiledMarkdown.value));
+      h("div", { style: { padding: "32px" } }, h(compiledMarkdown.value));
   },
 });
 </script>
