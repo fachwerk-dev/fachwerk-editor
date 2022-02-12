@@ -32,35 +32,7 @@ watchEffect(() => {
 </template>
 
 <style>
-:root {
-  --sans-serif: "IBM Plex Sans", sans-serif;
-  --mono: Cousine, monospace;
-}
-body {
-  margin: 0;
-  font-family: var(--sans-serif);
-  color: #2c3e50;
-}
-pre,
-code {
-  font-family: var(--mono);
-  font-feature-settings: "liga" 0, "calt" 0;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 0;
-  font-weight: 600;
-}
-p {
-  margin: 0 0 1rem 0;
-  line-height: 1.7;
-}
-svg,
-input {
+svg {
   display: block;
 }
 </style>
