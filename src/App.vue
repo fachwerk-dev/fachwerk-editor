@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import { onMounted, ref, watchEffect } from "vue";
+//@ts-ignore
+import { utoa, atou } from "fachwerk/internal";
+import "fachwerk/internal/style.css";
 
 import Editor from "./components/Editor.vue";
 import Compiler from "./components/Compiler.vue";
 import Debug from "./components/Debug.vue";
 
-function utoa(data: string): string {
-  return btoa(unescape(encodeURIComponent(data)));
-}
+// function utoa(data: string): string {
+//   return btoa(unescape(encodeURIComponent(data)));
+// }
 
-function atou(base64: string): string {
-  return decodeURIComponent(escape(atob(base64)));
-}
+// function atou(base64: string): string {
+//   return decodeURIComponent(escape(atob(base64)));
+// }
 
 const content = ref(atou(location.hash.slice(1)));
 

@@ -7,6 +7,8 @@ import {
   toRefs,
   watch,
 } from "vue";
+import { Content } from "fachwerk/internal";
+
 import { useCompiledMarkdown } from "../lib";
 
 export default defineComponent({
@@ -15,8 +17,7 @@ export default defineComponent({
     onErrorCaptured((e) => console.log(e));
     const { markdown } = toRefs(props);
     const compiledMarkdown = useCompiledMarkdown(markdown);
-    return () =>
-      h("div", { style: { padding: "32px" } }, h(compiledMarkdown.value));
+    return () => h(Content, () => h(compiledMarkdown.value));
   },
 });
 </script>

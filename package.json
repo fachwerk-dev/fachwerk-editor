@@ -6,7 +6,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "fachwerk": "^0.0.11",
+    "fachwerk": "^0.0.13-beta.1",
     "marked": "^4.0.10",
     "monaco-editor": "^0.31.1",
     "visualia": "^0.0.43",
