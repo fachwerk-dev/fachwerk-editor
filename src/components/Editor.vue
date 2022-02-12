@@ -1,32 +1,12 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from "vue";
-import * as monaco from "monaco-editor";
-
-import editorWorker from "monaco-editor/esm/vs/editor/editor.worker?worker";
-import htmlWorker from "monaco-editor/esm/vs/language/html/html.worker?worker";
+import { monaco } from "../lib/monaco";
 
 const props = defineProps<{
   modelValue?: string;
 }>();
 
 const emit = defineEmits<(e: "update:modelValue", value: string) => string>();
-
-// Set up Monaco workers
-
-// @ts-ignore
-window.MonacoEnvironment = {
-  getWorker(_: any, label: string) {
-    if (label === "html") {
-      return new htmlWorker();
-    }
-    return new editorWorker();
-  },
-};
-
-// Set up a custom visualia language
-
-// https://github.com/microsoft/monaco-languages/blob/master/src/markdown/markdown.ts
-// https://github.com/microsoft/monaco-languages/blob/master/src/html/html.ts#L17
 
 const editorRef = ref(null);
 
