@@ -1,9 +1,11 @@
 import { defineConfig } from "vite";
+import ViteMonaco from "vite-plugin-monaco-editor";
 import ViteVue from "@vitejs/plugin-vue";
 import ViteFonts from "vite-plugin-fonts";
 
 export default defineConfig({
   plugins: [
+    ViteMonaco(),
     ViteVue(),
     ViteFonts({
       google: {
