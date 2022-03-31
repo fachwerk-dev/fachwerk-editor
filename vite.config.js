@@ -6,7 +6,7 @@ import ViteFonts from "vite-plugin-fonts";
 export default defineConfig({
   plugins: [
     ViteMonaco(),
-    ViteVue(),
+    ViteVue({ reactivityTransform: true }),
     ViteFonts({
       google: {
         families: [

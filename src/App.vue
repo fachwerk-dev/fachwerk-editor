@@ -1,29 +1,36 @@
 <script setup lang="ts">
-import { onMounted, ref, watchEffect } from "vue";
+import { ref, watchEffect } from "vue";
+import {
+  utoa,
+  atou,
+  Content,
+  CompileMd,
+  CompileVue,
+  compileMarkdown,
+} from "fachwerk/internal";
 
 import Editor from "./components/Editor.vue";
-import Compiler from "./components/Compiler.vue";
 import Debug from "./components/Debug.vue";
-
-function utoa(data: string): string {
-  return btoa(unescape(encodeURIComponent(data)));
-}
-
-function atou(base64: string): string {
-  return decodeURIComponent(escape(atob(base64)));
-}
 
 const content = ref(atou(location.hash.slice(1)));
 
 watchEffect(() => {
   history.replaceState({}, "", "#" + utoa(content.value));
 });
+
+const onError = (e: any) => console.log(e);
 </script>
 
 <template>
   <div style="display: grid; grid-template-columns: 1fr 1fr; height: 100vh">
     <Editor v-model="content" />
-    <Compiler :markdown="content" />
+    <Content style="padding: 0px">
+      <CompileVue
+        style="width: 100%; height: 100%; border: 1px solid red"
+        :source="compileMarkdown(content)"
+        @error="onError"
+      />
+    </Content>
   </div>
   <Debug />
 </template>
