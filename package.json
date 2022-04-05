@@ -6,13 +6,14 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "fachwerk": "^0.0.18",
+    "fachwerk": "^0.0.19-beta.5",
     "marked": "^4.0.10",
     "visualia": "^0.0.43",
     "vite-plugin-fonts": "^0.2.2",
     "vue": "^3.1.4"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.2",
     "@types/marked": "^4.0.1",
     "@vitejs/plugin-vue": "^2.0.1",
     "@vue/compiler-sfc": "^3.1.1",

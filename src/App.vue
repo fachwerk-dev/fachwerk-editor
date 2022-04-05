@@ -6,6 +6,7 @@ import {
   Content,
   Compiler,
   compileMarkdown,
+  isScriptSetup,
 } from "fachwerk/internal";
 
 import Monaco from "./components/Monaco.vue";
@@ -21,20 +22,17 @@ const onError = (e: any) => console.log(e);
 </script>
 
 <template>
-  <div style="display: grid; grid-template-columns: 1fr 1fr; height: 100vh">
-    <Monaco v-model="content" />
-    <Content style="padding: 32px">
-      <Compiler
-        style="height: 100vh; width: 100%"
-        :source="compileMarkdown(content)"
-        @error="onError"
-      />
+  <div class="grid grid-cols-1 md:grid-cols-2">
+    <Monaco class="h-[80vh] md:h-screen" v-model="content" />
+    <Content class="p-4" :class="{ 'h-screen w-full': isScriptSetup(content) }">
+      <Compiler :source="compileMarkdown(content)" @error="onError" />
     </Content>
   </div>
   <Debug />
 </template>
 
 <style>
+/*
 :root {
   --sans-serif: "IBM Plex Sans", sans-serif;
   --mono: Cousine, monospace;
@@ -66,4 +64,5 @@ svg,
 input {
   display: block;
 }
+*/
 </style>
