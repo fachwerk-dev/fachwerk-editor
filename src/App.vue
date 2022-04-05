@@ -4,12 +4,11 @@ import {
   utoa,
   atou,
   Content,
-  CompileMd,
-  CompileVue,
+  Compile,
   compileMarkdown,
 } from "fachwerk/internal";
 
-import Editor from "./components/Editor.vue";
+import Monaco from "./components/Monaco.vue";
 import Debug from "./components/Debug.vue";
 
 const content = ref(atou(location.hash.slice(1)));
@@ -23,10 +22,10 @@ const onError = (e: any) => console.log(e);
 
 <template>
   <div style="display: grid; grid-template-columns: 1fr 1fr; height: 100vh">
-    <Editor v-model="content" />
-    <Content style="padding: 0px">
-      <CompileVue
-        style="width: 100%; height: 100%; border: 1px solid red"
+    <Monaco v-model="content" />
+    <Content style="padding: 32px">
+      <Compile
+        style="height: 100vh; width: 100%"
         :source="compileMarkdown(content)"
         @error="onError"
       />
