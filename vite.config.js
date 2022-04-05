@@ -2,8 +2,11 @@ import { defineConfig } from "vite";
 import ViteMonaco from "vite-plugin-monaco-editor";
 import ViteVue from "@vitejs/plugin-vue";
 import ViteFonts from "vite-plugin-fonts";
+import { postcss } from "fachwerk/internal";
 
 export default defineConfig({
+  resolve: { alias: { vue: "vue/dist/vue.esm-bundler.js" } },
+  css: { postcss },
   plugins: [
     ViteMonaco(),
     ViteVue({ reactivityTransform: true }),
@@ -19,7 +22,6 @@ export default defineConfig({
       },
     }),
   ],
-  resolve: { alias: { vue: "vue/dist/vue.esm-bundler.js" } },
   build: {
     rollupOptions: {
       output: {

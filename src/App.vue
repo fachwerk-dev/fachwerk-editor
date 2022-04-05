@@ -4,7 +4,7 @@ import {
   utoa,
   atou,
   Content,
-  Compile,
+  Compiler,
   compileMarkdown,
 } from "fachwerk/internal";
 
@@ -24,7 +24,7 @@ const onError = (e: any) => console.log(e);
   <div style="display: grid; grid-template-columns: 1fr 1fr; height: 100vh">
     <Monaco v-model="content" />
     <Content style="padding: 32px">
-      <Compile
+      <Compiler
         style="height: 100vh; width: 100%"
         :source="compileMarkdown(content)"
         @error="onError"
