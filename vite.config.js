@@ -2,11 +2,16 @@ import { defineConfig } from "vite";
 import ViteMonaco from "vite-plugin-monaco-editor";
 import ViteVue from "@vitejs/plugin-vue";
 import ViteFonts from "vite-plugin-fonts";
+import postcss from "./postcss.config";
 
 export default defineConfig({
+  resolve: { alias: { vue: "vue/dist/vue.esm-bundler.js" } },
+  css: {
+    postcss,
+  },
   plugins: [
     ViteMonaco(),
-    ViteVue(),
+    ViteVue({ reactivityTransform: true }),
     ViteFonts({
       google: {
         families: [
@@ -19,7 +24,6 @@ export default defineConfig({
       },
     }),
   ],
-  resolve: { alias: { vue: "vue/dist/vue.esm-bundler.js" } },
   build: {
     rollupOptions: {
       output: {
