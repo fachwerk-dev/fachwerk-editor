@@ -13,7 +13,9 @@ import {
 import Monaco from "./components/Monaco.vue";
 
 const content = ref(atou(location.hash.slice(1)));
-
+if (!content.value) {
+  content.value = "<f-hello />";
+}
 watchEffect(() => {
   history.replaceState({}, "", "#" + utoa(content.value));
 });
