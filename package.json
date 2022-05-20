@@ -6,7 +6,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "fachwerk": "^0.0.28-beta.10",
+    "fachwerk": "^0.0.28-beta.11",
     "marked": "^4.0.10",
     "visualia": "^0.0.43",
     "vite-plugin-fonts": "^0.2.2",
